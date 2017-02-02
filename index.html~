@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="./bower_components/openseadragon/built-openseadragon/openseadragon/openseadragon.js"></script>
+<script src="bower_components/fabric.js/dist/fabric.js"></script>
+<script src="openseadragon-fabricjs-overlay.js"></script>
+<title>
+Fabric and OSD Integration
+</title>
+<style>
+#viewer1 {
+   width: 1000px;
+   height: 1000px;
+}
+</style>
+</head>
+<body>
+<div id="viewer1"></div>
+<script>
+var TileSource = {
+	            	width: 151392,
+	                height: 37993,
+	                tileWidth: 240,
+	                tileHeight: 240,
+	                minLevel: 0,
+	                maxLevel: 10,
+	                getTileUrl: function(level, x, y) {
+	                	return "http://candygram.neurology.emory.edu:8080/api/v1/item/58878add92ca9a000b2c3607/tiles/zxy/" + level + "/" + x + "/" + y;
+	            	}
+	    		};
+
+
+var viewer1 = OpenSeadragon({
+  id: "viewer1",
+  prefixUrl:"bower_components/openseadragon/built-openseadragon/openseadragon/images/",
+  tileSources: TileSource
+});
+
+			var overlay = viewer1.fabricjsOverlay();
+
+			arr = [];
+			
+			
+			var rect1 = new fabric.Rect({
+                      left: 0,
+                      top: 0,
+					  opacity: 0.8,
+                      width: 18000,
+                      height: 18000,
+					  fill: '#FFA500',
+					  selectable: true
+											  	
+                    }); 
+
+			arr.push(rect1);
+			var rect2 = new fabric.Rect({
+					  left: 18001,
+                      top: 0,
+					  opacity: 0.8,
+                      width: 18000,
+                      height: 18000,
+					  fill: '#FF3400',
+					  selectable: true
+					});
+			arr.push(rect2);
+		   var rect3 = new fabric.Rect({
+					  left: 36001,
+                      top: 0,
+					  opacity: 0.8,
+                      width: 18000,
+                      height: 18000,
+					  fill: '#FF88AB',
+					  selectable: true
+					});
+			arr.push(rect3);
+			var rect4 = new fabric.Rect({
+					  left: 0,
+                      top: 18001,
+					  opacity: 0.8,
+                      width: 18000,
+                      height: 18000,
+					  fill: '#FF725B',
+					  selectable: true
+					});
+			arr.push(rect4);
+			var rect5 = new fabric.Rect({
+					  left: 18001,
+                      top: 18001,
+					  opacity: 0.8,
+                      width: 18000,
+                      height: 18000,
+					  fill: '#FF81A7',
+					  selectable: true
+					});
+			arr.push(rect5);
+			var rect6 = new fabric.Rect({
+					  left: 36001,
+                      top: 18001,
+					  opacity: 0.8,
+                      width: 18000,
+                      height: 18000,
+					  fill: '#FF1891',
+					  selectable: true
+					});
+			arr.push(rect6);
+
+		  	var group = new fabric.Group(arr, {
+ 						 left: 10,
+						 top: 10,
+						 angle: 0				 
+					});
+				
+			
+			
+			overlay.fabricCanvas().add(group);
+
+
+
+
+
+</script>
+</body>
+</html>

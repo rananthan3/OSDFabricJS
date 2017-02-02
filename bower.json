@@ -1,0 +1,26 @@
+{
+  "name": "FabricOSD_v2",
+  "authors": [
+    "rananthan3 <rajan.ananthan@gmail.com>"
+  ],
+  "description": "OSD Fabric integration",
+  "main": "index.html",
+  "keywords": [
+    "fabric",
+    "openseadragon"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "openseadragon": "^2.2.1",
+    "fabric.js": "fabric#^1.7.3"
+  }
+}
