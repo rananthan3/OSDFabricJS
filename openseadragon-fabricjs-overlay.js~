@@ -42,7 +42,7 @@
 
         this._canvas = document.createElement('canvas');
         
-        this._id='osd-overlaycanvas-1'//+counter();
+        this._id='osd-overlaycanvas-'+counter();
         this._canvas.setAttribute('id', this._id);
         this._canvasdiv.appendChild(this._canvas);
         this.resize();
