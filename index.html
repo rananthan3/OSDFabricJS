@@ -111,31 +111,41 @@ var rect6 = new fabric.Rect({
 		});
 arr.push(rect6);
 
+var group = new fabric.Group(arr, {
+			 left: 0,
+			 top: 0,
+			 originX: "center", 
+			 originY: "center",
+			 angle: 0				 
+		});
+
+
+viewer.addHandler('open', onImageOpen);
+
+function onImageOpen(){
+	var imagePoint = viewer.viewport.viewportToImageCoordinates(viewer.viewport.getCenter());
+	console.log(viewer.viewport.getCenter());
+	console.log(imagePoint);
+	group.set({left: imagePoint.x, top: imagePoint.y});	
+
+	overlay.fabricCanvas().add(group);
+}
 
 
 
-function draw( canvas, arr, rotate){
 
+
+
+
+
+
+function draw(angleVal){	
+
+	group.set({angle: angleVal});  	
+  	canvas.renderAll();
 	
-	canvas.clear();
-	 
-	var group = new fabric.Group(arr, {
-				 left: 10,
-				 top: 10,
-				 angle: rotate				 
-			});
-	
 
-
-	out = overlay.fabricCanvas().add(group);
-	return	out
-
-	//return viewer
 };
-
-//out = draw(45);
-
-
 
 var slider = webix.ui({
 	id: "slider",	
@@ -151,8 +161,8 @@ var slider = webix.ui({
 
 $$("slider").attachEvent("onChange", function(newv, oldv){
     //webix.message("Value changed from: "+oldv+" to: "+newv);
-	console.log (typeof newv);
-	draw(canvas, arr, newv);
+	//console.log (typeof newv);
+	draw(newv);
 });
 
 
