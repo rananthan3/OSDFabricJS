@@ -261,10 +261,9 @@ function updateCircle(top, left, height, width, scaleX, scaleY){
 var masterHandler = function (evt) {
     var movingObject = evt.target;
     //console.log(movingObject.get('left'), movingObject.get('top'));
-    console.log("Width = " + canvas._objects[0].width);
-    console.log("Height = " + canvas._objects[0].height);
+    
     console.log("ScaleX = " + canvas._objects[0].scaleX );
-    console.log("ScaleX = " + canvas._objects[0].scaleY );
+    console.log("ScaleY = " + canvas._objects[0].scaleY );
 
     updateCircle(group.top, group.left, group.height, group.width, group.scaleX, group.scaleY);
 
@@ -294,6 +293,9 @@ function onImageOpen(){
 	// console.log("Top: " + group.top);
 	// console.log("Width: " + group.width);
 	// console.log("Top: " + group.height);
+
+	console.log("Width = " + canvas._objects[0].width);
+    console.log("Height = " + canvas._objects[0].height);
 
 	arr2 = [];
 
